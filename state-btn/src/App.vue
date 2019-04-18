@@ -2,7 +2,7 @@
   <div id="app">
     <div class="wrapper">
       <state-button :stateId="fid" :stateBit="wflag" @changeState="changeState"></state-button>
-      <state-button :stateId="f2id" :stateBit="!wflag" @changeState="changeState"></state-button>
+      <state-button :stateId="fid" :stateBit="!wflag" @changeState="changeState"></state-button>
     </div>
     <!-- <router-view/> -->
   </div>
@@ -16,7 +16,7 @@ export default {
     return{
       fid:1,
       f2id:2,
-      wflag:true
+      wflag:false
     }
   },
   components:{
@@ -24,8 +24,7 @@ export default {
   },
   methods:{
     changeState(flag, id){
-      this.wflag = flag;
-      console.log(id);
+      
     }
   }
 }

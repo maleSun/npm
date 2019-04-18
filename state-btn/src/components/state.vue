@@ -7,7 +7,7 @@
 </template>
 <script>
 export default {
-  name: 'state-button',
+  name: 'state-btn',
   props:['stateId','stateBit'],
   data() {
     return {
