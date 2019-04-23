@@ -2,27 +2,27 @@
 
 > A Vue.js plugin
 
-## [状态按钮demo](https://malesun.github.io/npm/state-btn/dist/#/)
+## [分页插件 demo](https://malesun.github.io/npm/vue-paging-plugin/dist/#/)
 
 ## 插件安装
 ```javascript
-npm install state-button --save
+npm install vue-paging-plugin --save
 ```
 
 ## 插件引入
 * main.js
 
 ```javascript
-import StateButton from 'state-button';
+import PagingPlugin from 'vue-paging-plugin';
 
-Vue.use(StateButton);
+Vue.use(PagingPlugin);
 ```
 
 ## 使用方法
 * App.vue
 
 ```javascript
-<state-button :stateId="fid" :stateBit="!wflag" @changeState="changeState"></state-button>
+<paging-plug :pageView="fPageView" :lastPage="fLastPage" @selectPage="pageSelect"></paging-plug>
 ```
 
 ```javascript
@@ -30,9 +30,8 @@ export default {
   name: 'App',
   data(){
     return{
-      fid:1,
-      f2id:2,
-      wflag:false
+      fLastPage:100,
+      fPageView:8
     }
   }
 }
@@ -41,23 +40,22 @@ export default {
 
 | 参数             | 说明               | 类型  |
 | :-------------  |:-------------     | :-----|
-| stateId         | 按钮ID            |  Number, String |
-| stateBit        | 状态位，默认false  |    Boolean |
+| pageView        | 可视分页间隔       |  Number |
+| lastPage        | 最大(最后)页码     |  Number |
 
 ## 参数返回
 
 | 参数     | 说明  | 类型  |
 | :----------- |:-------------  |:--------------|
-| flag  | 按钮当前状态        | Boolean |
-| id    | 状态位，默认false   | Number, String |
+| pid    | 当前选择页码  | Number |
 
 ### 参数用法
 ```javascript
 export default {
   name: 'App',
   methods:{
-    changeState(flag, id){
-      console.log(flag, id)
+    pageSelect(pid){
+      console.log("pid = " + pid)
     }
   }
 }
