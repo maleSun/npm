@@ -1,21 +1,67 @@
-# vue-paging-plugin
+# state-btn
 
-> vue-paging-plugin 
+> A Vue.js plugin
 
-## Build Setup
+## [状态按钮demo](https://malesun.github.io/npm/state-btn/dist/#/)
 
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
+## 插件安装
+```javascript
+npm install state-button --save
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## 插件引入
+* main.js
+
+```javascript
+import StateButton from 'state-button';
+
+Vue.use(StateButton);
+```
+
+## 使用方法
+* App.vue
+
+```javascript
+<state-button :stateId="fid" :stateBit="!wflag" @changeState="changeState"></state-button>
+```
+
+```javascript
+export default {
+  name: 'App',
+  data(){
+    return{
+      fid:1,
+      f2id:2,
+      wflag:false
+    }
+  }
+}
+```
+## API
+
+| 参数             | 说明               | 类型  |
+| :-------------  |:-------------     | :-----|
+| stateId         | 按钮ID            |  Number, String |
+| stateBit        | 状态位，默认false  |    Boolean |
+
+## 参数返回
+
+| 参数     | 说明  | 类型  |
+| :----------- |:-------------  |:--------------|
+| flag  | 按钮当前状态        | Boolean |
+| id    | 状态位，默认false   | Number, String |
+
+### 参数用法
+```javascript
+export default {
+  name: 'App',
+  methods:{
+    changeState(flag, id){
+      console.log(flag, id)
+    }
+  }
+}
+```
+
+
+
